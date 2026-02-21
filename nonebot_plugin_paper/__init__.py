@@ -14,38 +14,38 @@ __plugin_meta__ = PluginMetadata(
     name="arXiv search",
     description="Nonebot-plugin-paper，a lightweight arXiv paper search tool—supports keyword/ID search and automatic link resolution, designed for academic research.",
     usage="""
-🔍 Core Commands
-• paper -s [keyword]
-  └─ Search papers by keyword
-  Example: `paper -s LLM agents`
-• paper -id [Paper ID]
-  └─ Get paper details by ID
-  Example: `paper -id 1706.03762`
+## 🔍 核心指令 (Core Commands)
 
-🔗 Auto Detection
-• [arXiv Link]
-  └─ Direct link parsing & preview
-  Supports abstract/PDF links
+- **paper -s [keyword]** - 通过关键词搜索论文
+  示例：`paper -s LLM agents`
+- **paper -id [Paper ID]** - 通过 ID 获取论文详情
+  示例：`paper -id 1706.03762`
 
-⚙️ Advanced Filters (Use with -s)
-• --number [int]: Result limit (default 1)
-• --sort [criterion]: Sort basis
-  (relevance / lastUpdatedDate / submittedDate)
-• --order [order]: Sort order
-  (ascending / descending)
-• --start [index]: Result offset
+## 🔗 自动解析 (Auto Detection)
 
-> Example: `paper -s transformer --number 3 --sort submittedDate`
+- **[arXiv Link]** - 直接监听链接解析
+  支持 abstract/PDF 链接
 
-👥 Credits
-• Authors: BalconyJH, HibiKier
-""",
+## ⚙️ 高级过滤 (Advanced Filters,配合 -s 使用)
+
+- **--number [int]** - 结果数量上限 (默认 1)
+- **--sort [criterion]** - 排序依据 (relevance / lastUpdatedDate / submittedDate)
+- **--order [order]** - 排序规则 (ascending / descending)
+- **--start [index]** - 结果偏移量
+
+> 💡 提示：示例：`paper -s transformer --number 3 --sort submittedDate`
+""".strip(),
     type="application",
     homepage="https://github.com/BalconyJH/nonebot-plugin-paper",
     supported_adapters=inherit_supported_adapters(
         "nonebot_plugin_alconna", "nonebot_plugin_uninfo"
     ),
     config=Config,
+    extra={
+        "author": "BalconyJH",
+        "version": "unknown",
+        "menu_type": "一些工具",
+    },
 )
 
 driver = get_driver()
